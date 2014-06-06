@@ -1,5 +1,3 @@
-//more info: https://github.com/artsjedi/EaselJS-Image-Hit-Area-Patch/
-
 with (createjs) {
     createjs.Container.prototype._getObjectsUnderPoint = function (x, y, arr, mouse) {
         var ctx = createjs.DisplayObject._hitTestContext;
@@ -23,8 +21,8 @@ with (createjs) {
                     mtx.alpha = hitArea.alpha;
                 }
 
-                // if avoidBitmapHitAreaCalculation is true, doesen't calculate hitArea for bitmaps istances avoiding cross domain errors and unecessary processing.
-                if (createjs.DisplayObject.avoidBitmapHitAreaCalculation == true && (child instanceof createjs.Bitmap || child instanceof createjs.Sprite) && !hitArea)
+                // doesen't calculate hitArea for bitmaps istances avoiding cross domain errors and unecessary processing.
+                if (child instanceof createjs.Bitmap && !hitArea)
                     return null;
 
                 ctx.globalAlpha = mtx.alpha;
